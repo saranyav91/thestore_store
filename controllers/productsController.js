@@ -1,19 +1,20 @@
 const db = require("../models");
 const axios = require("axios");
-// Defining methods for the productsController
+ 
 module.exports = {
-  findAll: function(req, res) {
-    if (req.query.q === "") {
-      req.query.q = "iphone";
+  findAll: function (req, res) {
+    var product = req.query.q;
+    if (!product) {
+      product = "iphone";
     }
     axios
       .get(
         `https://api.bestbuy.com/v1/products(longDescription=${
-          req.query.q
+          product
         }*)?format=json&apiKey=${process.env.BEST_BUY_API_KEY}`
       )
       .then(results => {
-        console.log("RESULTS: ", results.data);
+         
         res.json([...results.data.products]);
       })
       .catch(err => console.log(err));
@@ -24,16 +25,7 @@ module.exports = {
     }
     console.log("REQ CONTR: ", req.query.q);
     res.json(true);
-    // axios
-    //   .get(
-    //     `https://api.bestbuy.com/v1/products(departmentId=
-    //     ${req.params.id})?format=json&apiKey=${process.env.BEST_BUY_API_KEY}`
-    //   )
-    //   .then(results => {
-    //     console.log("RESULTS!!!: ", results.data);
-    //     res.json([...results.data.products]);
-    //   })
-    //   .catch(err => console.log(err));
+    
   },
   findById: function(req, res) {
     axios

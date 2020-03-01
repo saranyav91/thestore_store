@@ -1,9 +1,8 @@
-export const UPDATE_POSTS = "UPDATE_POSTS";
-export const REMOVE_POST = "REMOVE_POST";
-export const SET_CURRENT_POST = "SET_CURRENT_POST";
-export const ADD_POST = "ADD_POST";
-export const LOADING = "LOADING";
-
-export const ADD_FAVORITE = "ADD_FAVORITE";
-export const REMOVE_FAVORITE = "REMOVE_FAVORITE";
-export const UPDATE_FAVORITES = "UPDATE_FAVORITES";
+export const UPDATE_ITEMS = "UPDATE_ITEMS";
+export const REMOVE_CART_ITEM = "REMOVE_CART_ITEM";
+export const ADD_CART_ITEM = "ADD_CART_ITEM";
+export const SET_CURRENT_ITEM = "SET_CURRENT_ITEM";
+export const LOGIN = "LOGIN";
+export const LOGOUT = "LOGOUT";
+export const CLEAR_CART = "CLEAR_CART";
+export const UPDATE_CATEGORIES = "UPDATE_CATEGORIES";

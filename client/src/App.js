@@ -1,25 +1,30 @@
-import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Home from "./pages/Home";
-import Detail from "./pages/Detail";
-import NoMatch from "./pages/NoMatch";
-import Nav from "./components/Nav";
-import { StoreProvider } from "./utils/GlobalState";
-import FavoritesList from "./pages/FavoritesList";
+import React from 'react';
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import './App.css';
+import Navbar from "./components/Navbar"
+import Home from "./pages/Home"
+import Login from "./pages/Login"
+import Signup from "./pages/Signup"
+import Cart from "./pages/Cart"
+import Wrapper from "./components/Wrapper"
+import Item from "./pages/Item"
+import "./App.css"
+import { StoreProvider } from './utils/GlobalState';
+
 
 function App() {
   return (
     <Router>
       <div>
         <StoreProvider>
-          <Nav />
-          <Switch>
+          <Navbar />
+          <Wrapper>
             <Route exact path="/" component={Home} />
-            <Route exact path="/home" component={Home} />
-            <Route exact path="/favorites" component={FavoritesList} />
-            <Route exact path="/posts/:id" component={Detail} />
-            <Route component={NoMatch} />
-          </Switch>
+            <Route exact path="/Login" component={Login} />
+            <Route exact path="/Signup" component={Signup} />
+            <Route exact path="/Cart" component={Cart} />
+            <Route exact path="/Item" component={Item} />            
+          </Wrapper>
         </StoreProvider>
       </div>
     </Router>

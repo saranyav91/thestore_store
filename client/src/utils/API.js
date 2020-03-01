@@ -1,20 +1,27 @@
 import axios from "axios";
 
 export default {
-  // Gets all posts
-  getPosts: function() {
-    return axios.get("/api/posts");
-  },
-  // Gets the post with the given id
-  getPost: function(id) {
-    return axios.get("/api/posts/" + id);
-  },
-  // Deletes the post with the given id
-  deletePost: function(id) {
-    return axios.delete("/api/posts/" + id);
-  },
-  // Saves a post to the database
-  savePost: function(postData) {
-    return axios.post("/api/posts", postData);
-  }
-};
+
+    login: function (userData) {
+        return axios.post("api/users/login", userData);
+    },
+    signup: function (userData) {
+        return axios.post("api/users/signup", userData);
+    },
+    isAuth: function (_id) {
+        return axios.get("api/users/" + _id);
+    },
+    findAll: function (item) {
+        return axios.get("api/products/",  {
+            params: {
+              q: item
+            }
+          });
+    },
+    getItem: function (_id) {
+        return axios.get("api/products/" + _id);
+    },
+    getProductsByCategory: function () {
+        return axios.get("api/products/category");
+    }
+}
